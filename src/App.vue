@@ -1,28 +1,29 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div class="container">
+      <div class="row">
+        <registration></registration>
+        <registrations></registrations>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+  import Registration from './components/Registration';
+  import Registrations from './components/Registrations';
 export default {
   name: 'app',
   components: {
-    HelloWorld
-  }
+    Registration,
+    Registrations,
+  },
+  computed : {
+    unRegisteredUser () {
+      return this.users.filter( (user) => !user.registered);
+    }
+  },
+
 }
 </script>
 
-<style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
